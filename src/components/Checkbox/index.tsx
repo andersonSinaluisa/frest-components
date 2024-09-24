@@ -10,7 +10,7 @@ const Checkbox = (props: CheckboxProps) => {
 
   return (
     <div className={"form-check mt-3 form-check-" + props.color}>
-      <input className={"form-check-input"} type="checkbox"
+      <input className={"form-check-input"}
         {...props}
       />
       <label className="form-check-label" htmlFor={props.id}> {props.label} </label>

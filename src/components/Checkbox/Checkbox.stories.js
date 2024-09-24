@@ -12,6 +12,7 @@ export default {
     label: 'Checkbox',
     id: 'checkbox',
     color: 'primary',
+    type: 'checkbox',
   },
 };
 
@@ -21,6 +22,15 @@ export const Default = {
     id: 'checkbox',
     color: 'primary',
     onChange: fn()
+  }
+}
+export const Radio = {
+  args: {
+    label: 'Checkbox',
+    id: 'checkbox',
+    color: 'primary',
+    onChange: fn(),
+    type: 'radio'
   }
 }
 
