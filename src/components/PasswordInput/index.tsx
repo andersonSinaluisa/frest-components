@@ -8,6 +8,12 @@ interface PasswordInputProps extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 const PasswordInput = (props: PasswordInputProps) => {
+  const [showPassword, setShowPassword] = React.useState(props.showPassword || false);
+
+  const onShowPassword = () => {
+    setShowPassword(!showPassword);
+    props.onShowPassword && props.onShowPassword();
+  }
   return (
     <div className="form-password-toggle">
       <label className="form-label" htmlFor={props.id}>
@@ -15,14 +21,14 @@ const PasswordInput = (props: PasswordInputProps) => {
       </label>
       <div className="input-group">
         <input type={
-          props.showPassword ? 'text' : 'password'
+          showPassword ? 'text' : 'password'
         } className="form-control" {...props} />
-        <span id="basic-default-password2" className="input-group-text cursor-pointer">
+        <span id="basic-default-password2" className="input-group-text cursor-pointer" onClick={onShowPassword}>
           {
-            props.showPassword ? (
-              <i className="bx bx-hide" onClick={props.onShowPassword}></i>
+            showPassword ? (
+              <i className="bx bx-hide"></i>
             ) : (
-              <i className="bx bx-show" onClick={props.onShowPassword}></i>
+              <i className="bx bx-show"></i>
             )
           }
         </span>
