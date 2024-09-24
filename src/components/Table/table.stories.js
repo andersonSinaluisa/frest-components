@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from './index';
-
+import { fn } from '@storybook/test';
 // Datos de ejemplo para la tabla
 const data = [
   { name: 'John Doe', age: 28, country: 'USA' },
@@ -20,6 +20,13 @@ export default {
   args: {
     data,
     columns,
+    isSortable: true,
+    onSort: (column, direction) => {
+      fn(
+        `Sorted by ${column.key} in ${direction} order`
+      )();
+    },
+    isSelectable: true,
   },
 };
 
@@ -31,3 +38,17 @@ export const Default = {
   },
 
 }
+
+
+export const Sortable = {
+  args: {
+    data,
+    columns,
+    isSortable: true,
+    onSort: (column, direction) => {
+      fn(
+        `Sorted by ${column.key} in ${direction} order`
+      )();
+    },
+  },
+};
