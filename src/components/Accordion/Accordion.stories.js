@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from './index';
+import { fn } from '@storybook/test';
 
 export default {
   title: 'Components/Accordion',
@@ -8,15 +9,15 @@ export default {
     items: [
       {
         title: 'Item 1',
-        render: () => <p>Item 1</p>
+        render: fn() 
       },
       {
         title: 'Item 2',
-        render: () => <p>Item 2</p>
+        render: fn()
       },
       {
         title: 'Item 3',
-        render: () => <p>Item 3</p>
+        render: fn()
       }
     ]
   },
@@ -27,15 +28,15 @@ export const Default = {
     items: [
       {
         title: 'Item 1',
-        render: () => <p>Item 1</p>
+        render: fn()
       },
       {
         title: 'Item 2',
-        render: () => <p>Item 2</p>
+        render: fn()
       },
       {
         title: 'Item 3',
-        render: () => <p>Item 3</p>
+        render: fn()
       }
     ]
   }
