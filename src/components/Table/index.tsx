@@ -170,7 +170,7 @@ function Table<T>(props: TableProps<T>) {
                         <td key={column.key}>
                           {column.render
                             ? column.render(data)
-                            : data[column.key]}
+                            : data[column.key as keyof typeof  data] as string}
                         </td>
                       );
                     })}

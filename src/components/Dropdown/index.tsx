@@ -22,12 +22,12 @@ const Dropdown = (props: DropdownProps) => {
     'down': '',
 
   }
-  const handleClick = (e) => {
+const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setOpen(!open)
     props.button.onClick && props.button.onClick(e)
   }
   return (
-    <div className={"btn-group " + directions[props.direction]}>
+    <div className={"btn-group " }>
       <Button
         {...props.button}
         onClick={handleClick}
