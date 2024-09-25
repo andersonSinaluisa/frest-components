@@ -18,12 +18,17 @@ const BasicInput = (props: BasicInputProps) => {
       </label>
       <input type={props.type} className={"form-control " + props.className} id={props.id}
         placeholder={props.placeholder} aria-describedby="defaultFormControlHelp" />
-      <div id="defaultFormControlHelp" className="form-text">
-        {props.helpText}
-      </div>
-      <div className="invalid-feedback text-danger">
-        {props.error}
-      </div>
+      {
+        props.error ?
+          <div className=" text-danger">
+            {props.error}
+          </div>
+          : <div id="defaultFormControlHelp" className="form-text">
+            {props.helpText}
+          </div>
+      }
+
+
     </div>
   )
 }

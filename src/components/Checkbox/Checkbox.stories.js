@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Checkbox from './index';
-import { fn } from '@storybook/test';
+import { fn, userEvent, within } from '@storybook/test';
 // Datos de ejemplo para la tabla
 
 export default {
@@ -71,8 +71,14 @@ export const Secondary = {
     id: 'checkbox',
     color: 'secondary',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
@@ -82,8 +88,14 @@ export const Success = {
     id: 'checkbox',
     color: 'success',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
@@ -93,8 +105,14 @@ export const Danger = {
     id: 'checkbox',
     color: 'danger',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
@@ -104,9 +122,16 @@ export const Warning = {
     id: 'checkbox',
     color: 'warning',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
+
 }
 
 export const Info = {
@@ -115,8 +140,14 @@ export const Info = {
     id: 'checkbox',
     color: 'info',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
@@ -126,8 +157,14 @@ export const Dark = {
     id: 'checkbox',
     color: 'dark',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
@@ -137,8 +174,14 @@ export const Light = {
     id: 'checkbox',
     color: 'light',
     onChange: fn(),
-    checked: true,
 
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox');
+    setTimeout(() => {
+      userEvent.click(checkbox);
+    }, 2000);
   }
 }
 
