@@ -2,7 +2,7 @@
 import React from 'react'
 
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   isOutline?: boolean
   isRounded?: boolean

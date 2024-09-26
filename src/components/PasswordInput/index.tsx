@@ -1,7 +1,7 @@
 import React from "react";
 
 
-interface PasswordInputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface PasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   text: string;
   onShowPassword?: () => void;
   showPassword?: boolean;

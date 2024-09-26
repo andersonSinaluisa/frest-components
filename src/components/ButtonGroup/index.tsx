@@ -1,7 +1,7 @@
 import React from "react"
 import Button, { ButtonProps } from "../Button"
 
-interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ButtonGroupProps {
   items: ButtonProps[]
 
 }

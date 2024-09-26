@@ -1,13 +1,13 @@
 import React from "react";
 
 
-interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 }
 
 const Checkbox = (props: CheckboxProps) => {
-
+  
   return (
     <div className={"form-check mt-3 form-check-" + props.color}>
       <input className={"form-check-input"}
