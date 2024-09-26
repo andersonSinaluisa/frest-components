@@ -1,6 +1,6 @@
 {
   "name": "as-react-frest",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Libreria de componentes de Frest (Bootstrap) para React",
   "author": {
     "name": "Anderson Sinaluisa",
@@ -9,7 +9,7 @@
   },
   "type": "module",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],

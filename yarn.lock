@@ -1603,7 +1603,7 @@ arraybuffer.prototype.slice@^1.0.3:
     is-shared-array-buffer "^1.0.2"
 
 "as-react-frest@file:":
-  version "0.0.2"
+  version "0.0.3"
   resolved "file:"
   dependencies:
     as-react-frest "file:"
@@ -2853,7 +2853,7 @@ internal-slot@^1.0.7:
     side-channel "^1.0.4"
 
 "intro-storybook-react-template@file:":
-  version "0.0.2"
+  version "0.0.3"
   resolved "file:"
   dependencies:
     as-react-frest "file:"

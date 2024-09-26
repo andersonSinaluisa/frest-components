@@ -1,5 +1,5 @@
 import React from "react";
-interface BasicInputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface BasicInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
     placeholder: string;
     type: string;

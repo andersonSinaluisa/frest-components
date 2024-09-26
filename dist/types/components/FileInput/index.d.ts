@@ -1,5 +1,5 @@
 import React from "react";
-interface FileInputProps extends React.HTMLAttributes<HTMLInputElement> {
+interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
     error?: string;
     helpText: string;
