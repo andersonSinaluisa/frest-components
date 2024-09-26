@@ -1,6 +1,6 @@
 {
   "name": "as-react-frest",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Libreria de componentes de Frest (Bootstrap) para React",
   "author": {
     "name": "Anderson Sinaluisa",
@@ -8,6 +8,11 @@
     "url": "https://andersonsinaluisa.com"
   },
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chromaui/intro-storybook-react-template.git"
@@ -24,7 +29,7 @@
   },
   "scripts": {
     "dev": "vite",
-      "build": "vite build && tsc",
+    "build": "vite build && tsc",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
