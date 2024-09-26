@@ -5,6 +5,7 @@ interface PasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement>
   text: string;
   onShowPassword?: () => void;
   showPassword?: boolean;
+  error?:string
 }
 
 const PasswordInput = (props: PasswordInputProps) => {
@@ -23,7 +24,7 @@ const PasswordInput = (props: PasswordInputProps) => {
         <input type={
           showPassword ? 'text' : 'password'
         } className="form-control" {...props} />
-        <span id="basic-default-password2" className="input-group-text cursor-pointer" onClick={onShowPassword}>
+        <span id="basic-default-password2" className={`input-group-text cursor-pointer ${props.error?"is-invalid":""}`} onClick={onShowPassword}>
           {
             showPassword ? (
               <i className="bx bx-hide"></i>
@@ -33,6 +34,13 @@ const PasswordInput = (props: PasswordInputProps) => {
           }
         </span>
       </div>
+        {
+        props.error &&
+          <div className=" text-danger">
+            {props.error}
+          </div>
+          
+      }
     </div>
   )
 }

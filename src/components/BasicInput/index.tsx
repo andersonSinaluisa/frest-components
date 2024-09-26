@@ -16,7 +16,7 @@ const BasicInput = (props: BasicInputProps) => {
       <label htmlFor={props.id} className="form-label">
         {props.label}
       </label>
-      <input type={props.type} className={"form-control " + props.className} id={props.id}
+      <input type={props.type} className={`form-control  ${props.className} ${props.error?"is-invalid":""}`} id={props.id}
         placeholder={props.placeholder} aria-describedby="defaultFormControlHelp" />
       {
         props.error ?
