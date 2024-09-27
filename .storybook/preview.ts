@@ -29,10 +29,10 @@ import '../public/assets/vendor/fonts/flag-icons.css';
 import '../public/assets/vendor/css/rtl/core.css';
 import '../public/assets/vendor/css/rtl/theme-default.css';
 import '../public/assets/css/demo.css';
-import '../public/assets/vendor/css/pages/front-page.css'
-import '../public/assets/vendor/libs/nouislider/nouislider.css'
-import '../public/assets/vendor/libs/swiper/swiper.css'
-import '../public/assets/vendor/css/pages/front-page-landing.css'
+//import '../public/assets/vendor/css/pages/front-page.css'
+//import '../public/assets/vendor/libs/nouislider/nouislider.css'
+//import '../public/assets/vendor/libs/swiper/swiper.css'
+//import '../public/assets/vendor/css/pages/front-page-landing.css'
 //https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap
 
 const preview = {

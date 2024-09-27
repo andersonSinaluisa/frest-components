@@ -1,20 +1,37 @@
 import React from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
-
-interface NavbarProps{
+export interface NavbarProps{
   isSearchable:boolean;
   onSearch?: (text:string)=>void;
+  optionsMenuProfile:{
+      children: React.ReactNode
+      onClick: () => void
+      isDivider?: boolean
+  }[];
+  notification: ItemsNotification[];
+  title:string;
+  viewMoreText:string
+  color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
 
 }
 
-const Navbar = () => {
+export interface ItemsNotification{
+  leftIcon: React.ReactNode;
+  title: string;
+  subtitle:string;
+  time:string;
+  isNew:boolean;
+}
+const Navbar = (props:NavbarProps)=>{
 
   const [openNotification,setOpenNotification] = React.useState(false)
   const [openProfileMenu,setOpenProfileMenu] = React.useState(false)
   const [openSearch,setOpenSearch]= React.useState(false)
 
   return(
-    <nav className="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme"
+    <nav className={`layout-navbar navbar navbar-expand-xl align-items-center ${props.color?"bg-"+props.color:"bg-navbar-theme"}`}
      id="layout-navbar">
       <div className="container-xxl">
         <div className="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
@@ -213,7 +230,7 @@ const Navbar = () => {
               >
                 <li className="dropdown-menu-header border-bottom">
                   <div className="dropdown-header d-flex align-items-center py-3">
-                    <h5 className="text-body mb-0 me-auto">Notification</h5>
+                    <h5 className="text-body mb-0 me-auto">{props.title}</h5>
                     <a
                       href="javascript:void(0)"
                       className="dropdown-notifications-all text-body"
@@ -224,195 +241,44 @@ const Navbar = () => {
                   </div>
                 </li>
                 <li className="dropdown-notifications-list scrollable-container ">
+                     <PerfectScrollbar>
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <img src="../../assets/img/avatars/1.png" 
-                             className="w-px-40 h-auto rounded-circle" />
+                   
+                    {
+                      props.notification.map(e=>(
+                        <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
+                          <div className="d-flex">
+                            <div className="flex-shrink-0 me-3">
+                              <div className="avatar">
+                                {e.leftIcon}
+                              </div>
+                            </div>
+                            <div className="flex-grow-1">
+                              <h6 className="mb-1">{e.title}</h6>
+                              <p className="mb-0">{e.subtitle}</p>
+                              <small className="text-muted">{e.isDivider}</small>
+                            </div>
+                            <div className="flex-shrink-0 dropdown-notifications-actions">
+                             
+                                {
+                                  e.isNew && <a href="javascript:void(0)" className="dropdown-notifications-read"
+                                ><span className="badge badge-dot"></span></a>
+                                }
+                              <a href="javascript:void(0)" className="dropdown-notifications-archive"
+                                ><span className="bx bx-x"></span></a>
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Congratulation Lettie 🎉</h6>
-                          <p className="mb-0">Won the monthly best seller gold badge</p>
-                          <small className="text-muted">1h ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <span className="avatar-initial rounded-circle bg-label-danger">CF</span>
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Charles Franklin</h6>
-                          <p className="mb-0">Accepted your connection</p>
-                          <small className="text-muted">12hr ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <img src="../../assets/img/avatars/2.png" className="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">New Message ✉️</h6>
-                          <p className="mb-0">You have new message from Natalie</p>
-                          <small className="text-muted">1h ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <span className="avatar-initial rounded-circle bg-label-success"><i className="bx bx-cart"></i></span>
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Whoo! You have new order 🛒</h6>
-                          <p className="mb-0">ACME Inc. made new order $1,154</p>
-                          <small className="text-muted">1 day ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span ></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <img src="../../assets/img/avatars/9.png" className="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Application has been approved 🚀</h6>
-                          <p className="mb-0">Your ABC project application has been approved.</p>
-                          <small className="text-muted">2 days ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <span className="avatar-initial rounded-circle bg-label-success"
-                              ><i className="bx bx-pie-chart-alt"></i></span>
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Monthly report is generated</h6>
-                          <p className="mb-0">July monthly financial report is generated</p>
-                          <small className="text-muted">3 days ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read">
-                            <span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <img src="../../assets/img/avatars/5.png"  className="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">Send connection request</h6>
-                          <p className="mb-0">Peter sent you connection request</p>
-                          <small className="text-muted">4 days ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <img src="../../assets/img/avatars/6.png"  className="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">New message from Jane</h6>
-                          <p className="mb-0">Your have new message from Jane</p>
-                          <small className="text-muted">5 days ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action dropdown-notifications-item marked-as-read">
-                      <div className="d-flex">
-                        <div className="flex-shrink-0 me-3">
-                          <div className="avatar">
-                            <span className="avatar-initial rounded-circle bg-label-warning"
-                              ><i className="bx bx-error"></i></span>
-                          </div>
-                        </div>
-                        <div className="flex-grow-1">
-                          <h6 className="mb-1">CPU is running high</h6>
-                          <p className="mb-0">CPU Utilization Percent is currently at 88.63%,</p>
-                          <small className="text-muted">5 days ago</small>
-                        </div>
-                        <div className="flex-shrink-0 dropdown-notifications-actions">
-                          <a href="javascript:void(0)" className="dropdown-notifications-read"
-                            ><span className="badge badge-dot"></span></a>
-                          <a href="javascript:void(0)" className="dropdown-notifications-archive"
-                            ><span className="bx bx-x"></span></a>
-                        </div>
-                      </div>
-                    </li>
+                        </li>
+                      ))
+                    }
+                    
                   </ul>
+                </PerfectScrollbar>
+
                 </li>
                 <li className="dropdown-menu-footer border-top">
                   <a href="javascript:void(0);" className="dropdown-item d-flex justify-content-center p-3">
-                    View all notifications
+                    {props.viewMoreText}
                   </a>
                 </li>
               </ul>
@@ -431,69 +297,23 @@ const Navbar = () => {
               <ul className={`dropdown-menu dropdown-menu-end ${openProfileMenu?"show":""}`}
               data-bs-popper
               >
-                <li>
-                  <a className="dropdown-item" href="pages-account-settings-account.html">
-                    <div className="d-flex">
-                      <div className="flex-shrink-0 me-3">
-                        <div className="avatar avatar-online">
-                          <img src="../../assets/img/avatars/1.png"  className="rounded-circle" />
-                        </div>
-                      </div>
-                      <div className="flex-grow-1">
-                        <span className="fw-medium d-block lh-1">John Doe</span>
-                        <small>Admin</small>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <div className="dropdown-divider"></div>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="pages-profile-user.html">
-                    <i className="bx bx-user me-2"></i>
-                    <span className="align-middle">My Profile</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="pages-account-settings-account.html">
-                    <i className="bx bx-cog me-2"></i>
-                    <span className="align-middle">Settings</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="pages-account-settings-billing.html">
-                    <span className="d-flex align-items-center align-middle">
-                      <i className="flex-shrink-0 bx bx-credit-card me-2"></i>
-                      <span className="flex-grow-1 align-middle">Billing</span>
-                      <span className="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <div className="dropdown-divider"></div>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="pages-faq.html">
-                    <i className="bx bx-help-circle me-2"></i>
-                    <span className="align-middle">FAQ</span>
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="pages-pricing.html">
-                    <i className="bx bx-dollar me-2"></i>
-                    <span className="align-middle">Pricing</span>
-                  </a>
-                </li>
-                <li>
-                  <div className="dropdown-divider"></div>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="auth-login-cover.html" target="_blank">
-                    <i className="bx bx-power-off me-2"></i>
-                    <span className="align-middle">Log Out</span>
-                  </a>
-                </li>
+                {
+                  props.optionsMenuProfile.map((option,index)=>{
+                    if(option.isDivider){
+                      return <div className="dropdown-divider"></div>
+                    }
+                    return(
+                      <li>
+                        <a className="dropdown-item" href="javascript:void(0)"
+                        onClick={option.onClick}
+                        >
+                          {option.children}
+                        </a>
+                      </li>
+                    )
+                  })
+                }
+                
               </ul>
             </li>
             {/*/ User */}
