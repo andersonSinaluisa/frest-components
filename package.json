@@ -25,6 +25,8 @@
     "as-react-frest": "file:",
     "intro-storybook-react-template": "file:",
     "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-perfect-scrollbar": "^1.5.8"
   },

@@ -256,7 +256,7 @@ const Navbar = (props:NavbarProps)=>{
                             <div className="flex-grow-1">
                               <h6 className="mb-1">{e.title}</h6>
                               <p className="mb-0">{e.subtitle}</p>
-                              <small className="text-muted">{e.isDivider}</small>
+                              <small className="text-muted">{e.time}</small>
                             </div>
                             <div className="flex-shrink-0 dropdown-notifications-actions">
                              

@@ -1,6 +1,6 @@
 
 import React from 'react';
-interface AccordionProps {
+export interface AccordionProps {
   items: {
     title: string,
     icon?: () => React.ReactNode,
