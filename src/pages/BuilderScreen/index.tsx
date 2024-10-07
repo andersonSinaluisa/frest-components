@@ -35,9 +35,7 @@ const BuilderScreen: React.FC = () => {
     const newComponent: PageComponent = { type, props: {} };
 
 
-    if (componentMapType.includes(type)) {
-        
-    }
+    
 
     // Configurar props por defecto si es necesario
     if (type === 'header') {

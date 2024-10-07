@@ -9,22 +9,26 @@ interface BasicInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 }
 
-const BasicInput = (props: BasicInputProps) => {
+const BasicInput = ({label, placeholder, type, error, helpText, ...rest}: BasicInputProps) => {
+
+
 
   return (
     <div>
-      <label htmlFor={props.id} className="form-label">
-        {props.label}
+      <label htmlFor={rest.id} className="form-label">
+        {label}
       </label>
-      <input type={props.type} className={`form-control  ${props.className} ${props.error?"is-invalid":""}`} id={props.id}
-        placeholder={props.placeholder} aria-describedby="defaultFormControlHelp" />
+      <input type={type} className={`form-control  ${rest.className} ${error?"is-invalid":""}`} 
+        placeholder={placeholder} 
+        {...rest}
+        />
       {
-        props.error ?
+        error ?
           <div className=" text-danger">
-            {props.error}
+            {error}
           </div>
           : <div id="defaultFormControlHelp" className="form-text">
-            {props.helpText}
+            {helpText}
           </div>
       }
 

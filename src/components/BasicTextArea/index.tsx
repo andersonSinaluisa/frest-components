@@ -4,14 +4,14 @@ interface BasicTextAreaProps extends React.InputHTMLAttributes<HTMLTextAreaEleme
   label: string;
 }
 
-const BasicTextArea = (props: BasicTextAreaProps) => {
+const BasicTextArea = ({label,...props}: BasicTextAreaProps) => {
 
   return (
     <div>
       <label
         htmlFor={props.id}
         className="form-label">
-        {props.label}
+        {label}
       </label>
       <textarea className="form-control"
         id={props.id} rows={3}
