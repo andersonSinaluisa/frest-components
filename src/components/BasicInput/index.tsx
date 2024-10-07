@@ -18,9 +18,10 @@ const BasicInput = ({label, placeholder, type, error, helpText, ...rest}: BasicI
       <label htmlFor={rest.id} className="form-label">
         {label}
       </label>
-      <input type={type} className={`form-control  ${rest.className} ${error?"is-invalid":""}`} 
-        placeholder={placeholder} 
+      <input 
         {...rest}
+        type={type} className={`form-control  ${rest.className} ${error?"is-invalid":""}`} 
+        placeholder={placeholder} 
         />
       {
         error ?
