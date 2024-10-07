@@ -1,4 +1,4 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
 
 interface SwitchProps extends InputHTMLAttributes<HTMLInputElement>{
@@ -8,12 +8,12 @@ interface SwitchProps extends InputHTMLAttributes<HTMLInputElement>{
     positiveIcon?:React.ReactNode;
     negativeIcon?:React.ReactNode;
     isSquared: boolean
-    size?:'lg'|'sm'|'default'
+    size_?:'lg'|'sm'|'default'
 }
 const Switch = (props: SwitchProps)=>{
   return(
    <label className={`switch switch-${props.color} ${props.isSquared?"switch-square":""} 
-   switch-${props.size}
+   switch-${props.size_}
    `}>
     <input type="checkbox" className="switch-input" {...props}/>
     <span className="switch-toggle-slider">
