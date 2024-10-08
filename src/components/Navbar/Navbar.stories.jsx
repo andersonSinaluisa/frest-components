@@ -22,7 +22,8 @@ export default {
         }
       ],
       title:'Notificaciones',
-      viewMoreText:'Ver más'
+      viewMoreText:'Ver más',
+    avatar: 'https://picsum.photos/50/50'
 
   },
 };
@@ -45,7 +46,8 @@ export const Default = {
       }
     ],
     title:'Notificaciones',
-    viewMoreText:'Ver más'
+    viewMoreText:'Ver más',
+    avatar: 'https://picsum.photos/50/50'
 
   }
 }
@@ -72,7 +74,9 @@ export const Primary = {
     ],
     title:'Notificaciones',
     viewMoreText:'Ver más',
-    color:'primary'
+    color:'primary',
+    avatar: 'https://picsum.photos/50/50'
+
 
   }
 }
@@ -97,7 +101,9 @@ export const Success = {
     ],
     title:'Notificaciones',
     viewMoreText:'Ver más',
-    color:'success'
+    color:'success',
+    avatar: 'https://picsum.photos/50/50'
+
 
   }
 }
@@ -121,7 +127,9 @@ export const Danger = {
     ],
     title:'Notificaciones',
     viewMoreText:'Ver más',
-    color:'danger'
+    color:'danger',
+    avatar: 'https://picsum.photos/50/50'
+
 
   }
 }

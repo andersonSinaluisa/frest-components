@@ -14,7 +14,7 @@ export interface NavbarProps{
   title:string;
   viewMoreText:string
   color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
-
+  avatar:string;
 }
 
 export interface ItemsNotification{
@@ -291,7 +291,7 @@ const Navbar = (props:NavbarProps)=>{
               onClick={()=>setOpenProfileMenu(!openProfileMenu)}
               href="javascript:void(0);" data-bs-toggle="dropdown">
                 <div className="avatar avatar-online">
-                  <img src="../../assets/img/avatars/1.png"  className="rounded-circle" />
+                  <img src={props.avatar}  className="rounded-circle" />
                 </div>
               </a>
               <ul className={`dropdown-menu dropdown-menu-end ${openProfileMenu?"show":""}`}
